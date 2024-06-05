@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search Posts</h2>
+<form method="post">
+    <label for="keyword">Keyword:</label>
+    <input type="text" id="keyword" name="keyword" required>
+    <br>
+    <input type="submit" value="Search">
+</form>
+{% if results %}
+<h3>Search Results:</h3>
+<ul>
+    {% for result in results %}
+    <li>
+        <h3>{{ result.title }}</h3>
+        <p>{{ result.content }}</p>
+        <small>{{ result.timestamp }}</small>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No results found.</p>
+{% endif %}
+{% endblock %}
