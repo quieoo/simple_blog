@@ -23,4 +23,7 @@ def create_app(config_class=Config):
     from app.routes import bp as main_bp
     app.register_blueprint(main_bp)
 
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
+
     return app

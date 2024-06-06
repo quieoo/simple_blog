@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="mt-4">
+  <h1>Keywords</h1>
+  <div class="list-group">
+    {% for keyword in keywords %}
+      <a href="{{ url_for('main.keyword_posts', keyword=keyword) }}" class="list-group-item list-group-item-action">
+        {{ keyword }}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
